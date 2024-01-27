@@ -3,9 +3,11 @@ const Increment = () => {
   const { dispatch } = useAppContext();
 
   return (
-    <button onClick={() => dispatch({ type: "INCREMENT" })}>
-      INCREMENT (+)
-    </button>
+    <div>
+      <button onClick={() => dispatch({ type: "INCREMENT" })}>
+        INCREMENT (+)
+      </button>
+    </div>
   );
 };
 export default Increment;

@@ -12,13 +12,17 @@ function SetValue() {
   };
 
   return (
-    <div>
-      <input
-        onChange={(e) => setValue(Number(e.target.value))}
-        placeholder="Set the value"
-      />
-      <button onClick={onSubmit}>Submit</button>
-    </div>
+    <>
+      <div>
+        <input
+          onChange={(e) => setValue(Number(e.target.value))}
+          placeholder="Set the value"
+        />
+        <button onClick={onSubmit}>Submit</button>
+      </div>
+      <br />
+      <br />
+    </>
   );
 }
 

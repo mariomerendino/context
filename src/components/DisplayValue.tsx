@@ -4,7 +4,11 @@ const DisplayValue = () => {
     state: { count },
   } = useAppContext();
 
-  return <span>The Value is: {count} </span>;
+  return (
+    <div>
+      <span>The Value is: {count} </span>
+    </div>
+  );
 };
 
 export default DisplayValue;

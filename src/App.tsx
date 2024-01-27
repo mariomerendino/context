@@ -8,10 +8,12 @@ import DisplayValue from "./components/DisplayValue";
 function App() {
   return (
     <AppContextProvider initialValues={{ count: 10 }}>
-      <SetValue />
-      <Increment />
-      <Decrement />
-      <DisplayValue />
+      <div>
+        <SetValue />
+        <Increment />
+        <Decrement />
+        <DisplayValue />
+      </div>
     </AppContextProvider>
   );
 }

@@ -3,9 +3,11 @@ const Decrement = () => {
   const { dispatch } = useAppContext();
 
   return (
-    <button onClick={() => dispatch({ type: "DECREMENT" })}>
-      Decrement (-)
-    </button>
+    <div>
+      <button onClick={() => dispatch({ type: "DECREMENT" })}>
+        Decrement (-)
+      </button>
+    </div>
   );
 };
 export default Decrement;
