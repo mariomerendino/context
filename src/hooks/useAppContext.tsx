@@ -1,22 +1,16 @@
-import {
-  useContext,
-  createContext,
-  useReducer,
-  Dispatch,
-  Reducer,
-} from "react";
+import { useContext, createContext, useReducer, Dispatch } from "react";
 
 type AppContextStateType = {
   count: number;
 };
-type ReducerType = Reducer<AppContextStateType, Action>;
 
-type Action = {
-  type: "INCREMENT" | "DECREMENT" | "SET_VALUE";
-  value?: number;
-};
+type IncrementAction = { type: "INCREMENT" };
+type DecrementAction = { type: "DECREMENT" };
+type SetValueAction = { type: "SET_VALUE"; value: number };
 
-const reducer: ReducerType = (state: AppContextStateType, action: Action) => {
+type AppActions = IncrementAction | DecrementAction | SetValueAction;
+
+const reducer = (state: AppContextStateType, action: AppActions) => {
   switch (action.type) {
     case "INCREMENT":
       return { ...state, count: state.count + 1 };
@@ -30,7 +24,7 @@ const reducer: ReducerType = (state: AppContextStateType, action: Action) => {
 };
 
 const AppContext = createContext<
-  { state: AppContextStateType; dispatch: Dispatch<Action> } | undefined
+  { state: AppContextStateType; dispatch: Dispatch<AppActions> } | undefined
 >(undefined);
 
 type AppContextProviderType = {
@@ -42,7 +36,7 @@ export const AppContextProvider = ({
   children,
   initialValues,
 }: AppContextProviderType) => {
-  const [state, dispatch] = useReducer<ReducerType>(reducer, initialValues);
+  const [state, dispatch] = useReducer(reducer, initialValues);
 
   return (
     <AppContext.Provider value={{ state, dispatch }}>
